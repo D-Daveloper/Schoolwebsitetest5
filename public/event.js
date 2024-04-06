@@ -24,7 +24,7 @@ window.addEventListener("scroll",() => {
 function sideBar(){
     const sidebar = document.querySelector(".side-bar")
     document.querySelector(".first-bar").style.display = "none"
-    document.body.classList.add("fixed")
+
     sidebar.style.display = 'flex'
 
     return false;//to prevent the anchor tag from taking me to the top of the screen  
@@ -33,7 +33,6 @@ function sideBar(){
 function closeBar(){
     const sidebar = document.querySelector(".side-bar")
     document.querySelector(".first-bar").style.display = "flex"
-    document.body.classList.remove("fixed")
     sidebar.style.display = 'none'
 
     return false;
