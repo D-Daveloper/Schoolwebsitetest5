@@ -116,7 +116,7 @@ li a:hover{
     position: fixed;
     top: 0;
     right: 50px;
-    height: 40%;
+    height: auto;
     width: 300px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -133,7 +133,7 @@ li a:hover{
 }
 .close-sidebar{
     /* top: -1000px; */
-    bottom: -60px;
+    top: -60px;
     opacity: 0;
 }
 .second-bar{
