@@ -143,9 +143,7 @@ li a:hover{
     padding: 7x 0px;
     /* padding-left: 20px;  */
 }
-/* .side-bar li:first-child{
-    margin-left: 160px;
-} */
+
 
 .menu-button{
     display: none;
@@ -164,14 +162,11 @@ li a:hover{
     } 
 }
 
-@media (max-width:480px) {
+/* @media (max-width:480px) {
     .side-bar{
-        width: 100%;
+        width: 100%; 
     }
-    .side-bar li:first-child{
-        margin-left: 82%;
-    }
-}
+} */
 
 .carousel{
     position: relative;
