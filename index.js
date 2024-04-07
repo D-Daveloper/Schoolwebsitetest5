@@ -313,7 +313,7 @@ app.get('/admin', (req, res) => {
 function saveEmailsToJson() {
     fs.writeFile('emails.json', JSON.stringify(emails), (err) => {
         if (err) {
-            console.error('Error saving emails:', err);
+            console.error('Error saving emails:', err); 
         } else {
             console.log('Emails saved successfully!');
         }

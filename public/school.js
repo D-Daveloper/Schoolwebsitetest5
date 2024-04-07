@@ -178,16 +178,47 @@ document.addEventListener("DOMContentLoaded", function () {
     // Trigger the fadeInElements function on page load
     fadeInElements();
 });
+
+function sideBar(e) {
+    e.preventDefault();
+    const sidebar = document.querySelector(".side-bar");
+    if(sidebar.classList.contains("open-sidebar")){
+        sidebar.classList.remove("open-sidebar")
+        sidebar.classList.add("close-sidebar")
+    }
+    else{
+        sidebar.classList.remove("close-sidebar")
+        sidebar.classList.add("open-sidebar")
+    }
+    // sidebar.classList.toggle("open-sidebar")
+}
+
+const Contact = document.querySelector(".contactside")
+const teacher = document.querySelector(".Teacherside")
+function contact(){
+    const sidebar = document.querySelector(".side-bar");
+    if (sidebar.classList.contains("open-sidebar")){
+        sidebar.classList.remove("open-sidebar")
+        sidebar.classList.add("close-sidebar")
+    }
+}
+
+Contact.addEventListener("click",contact);
+teacher.addEventListener("click",contact);
+document.querySelector(".first-bar").addEventListener("click", sideBar);
 const navBar = document.querySelector("#nav-bar");
 console.log(navBar.getBoundingClientRect().top)
 const body = document.body;
 let lastScroll = 0;
+const sidebar = document.querySelector(".side-bar");
 window.addEventListener("scroll",() => {
     let currentscroll = window.scrollY
     if (currentscroll <= 0){
         body.classList.remove("scroll-up")
     }
-
+    if (sidebar.classList.contains("open-sidebar")){
+        return;
+    }
     if (window.scrollY >= 400 && currentscroll > lastScroll && !body.classList.contains("scroll-down")){
         body.classList.remove("scroll-up")
         body.classList.add("scroll-down")
@@ -205,53 +236,6 @@ var div = document.querySelector(".image-container-staff")
 div.addEventListener("mouseover", function(){
     h3.style.color = "blue";
 })
-
-// function sideBar(e){
-//     e.preventDefault()
-//     const sidebar = document.querySelector(".side-bar")
-//     document.querySelector(".first-bar").style.display = "none"
-//     // document.body.classList.add("fixed")
-//     sidebar.style.display = 'flex'
-//     document.body.classList.add("fixed")
-
-//     return false;//to prevent the anchor tag from taking me to the top of the screen 
-     
-// }
-
-// function closeBar(e){
-//     e.preventDefault()
-//     const sidebar = document.querySelector(".side-bar")
-//     document.querySelector(".first-bar").style.display = "flex"
-//     document.body.classList.remove("fixed")
-//     sidebar.style.display = 'none'
-
-//     // return false;
-// }
-
-// document.querySelector(".first-bar").addEventListener("click",sideBar)
-// document.querySelector(".second-bar").addEventListener("click",closeBar)
-function sideBar(e) {
-    e.preventDefault();
-    const sidebar = document.querySelector(".side-bar");
-    const firstBar = document.querySelector(".first-bar");
-
-    firstBar.style.display = "none";
-    sidebar.style.display = 'flex';
-    // document.body.classList.add("fixed");
-}
-
-function closeBar(e) {
-    e.preventDefault();
-    const sidebar = document.querySelector(".side-bar");
-    const firstBar = document.querySelector(".first-bar");
-
-    firstBar.style.display = "block"; // Show the first bar again
-    sidebar.style.display = 'none';
-    // document.body.classList.remove("fixed");
-}
-
-document.querySelector(".first-bar").addEventListener("click", sideBar);
-document.querySelector(".second-bar").addEventListener("click", closeBar);
 
 
 const wrapper = document.querySelector(".wrapper");

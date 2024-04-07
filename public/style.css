@@ -109,26 +109,43 @@ li a:hover{
 }
 
 .side-bar{
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: fixed;
     top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
+    right: 50px;
+    height: 40%;
+    width: 300px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
-
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    gap: 18px;
+}
+.open-sidebar{
+    top: 60px;
+    opacity: 1;
+}
+.close-sidebar{
+    /* top: -1000px; */
+    bottom: -60px;
+    opacity: 0;
+}
+.second-bar{
+    padding-top: 20px;
 }
 .side-bar li{
-    padding: 15px 0px;
-    padding-left: 30px; 
+    padding: 7x 0px;
+    /* padding-left: 20px;  */
 }
-.side-bar li:first-child{
+/* .side-bar li:first-child{
     margin-left: 160px;
-}
+} */
 
 .menu-button{
     display: none;

@@ -1,14 +1,18 @@
+
+const navBar = document.querySelector("#nav-bar");
+console.log(navBar.getBoundingClientRect().top)
 const body = document.body;
 let lastScroll = 0;
+const sidebar = document.querySelector(".side-bar");
 window.addEventListener("scroll",() => {
     let currentscroll = window.scrollY
     if (currentscroll <= 0){
         body.classList.remove("scroll-up")
     }
-
-    // if (window.scrollY <= 300){
-    //     body.classList.remove("scroll-down")
-    if (window.scrollY >= 100 && currentscroll > lastScroll && !body.classList.contains("scroll-down")){
+    if (sidebar.classList.contains("open-sidebar")){
+        return;
+    }
+    if (window.scrollY >= 400 && currentscroll > lastScroll && !body.classList.contains("scroll-down")){
         body.classList.remove("scroll-up")
         body.classList.add("scroll-down")
     }
@@ -21,25 +25,37 @@ window.addEventListener("scroll",() => {
     lastScroll = currentscroll;
 })
 
-function sideBar(){
-    const sidebar = document.querySelector(".side-bar")
-    document.querySelector(".first-bar").style.display = "none"
+function sideBar(e) {
+    e.preventDefault();
+    const sidebar = document.querySelector(".side-bar");
+    const firstBar = document.querySelector(".first-bar");
 
-    sidebar.style.display = 'flex'
-
-    return false;//to prevent the anchor tag from taking me to the top of the screen  
+    // firstBar.style.display = "none";
+    sidebar.classList.toggle("open-sidebar")
+    // document.body.classList.add("fixed");
 }
 
-function closeBar(){
-    const sidebar = document.querySelector(".side-bar")
-    document.querySelector(".first-bar").style.display = "flex"
-    sidebar.style.display = 'none'
+function closeBar(e) {
+    e.preventDefault();
+    const sidebar = document.querySelector(".side-bar");
+    const firstBar = document.querySelector(".first-bar");
 
-    return false;
+    // firstBar.style.display = "block"; // Show the first bar again
+    sidebar.style.display = 'none';
+    // document.body.classList.remove("fixed");
 }
 
-document.querySelector(".first-bar").addEventListener("click",sideBar)
-document.querySelector(".second-bar").addEventListener("click",closeBar)
+document.querySelector(".first-bar").addEventListener("click", sideBar);
+const Contact = document.querySelector(".contactside")
+
+function contact(){
+    const sidebar = document.querySelector(".side-bar");
+    if (sidebar.classList.contains("open-sidebar")){
+        sidebar.classList.remove("open-sidebar")
+    }
+}
+
+Contact.addEventListener("click",contact);
 
 
 document.addEventListener("DOMContentLoaded", function () {
