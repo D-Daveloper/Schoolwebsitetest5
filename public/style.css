@@ -1297,25 +1297,25 @@ main{
 }
 
 .about-img{
-    background-image: url("/pictures/about1.webp");
+    background-image: url("/pictures/IMG-20240411-WA0002.webp");
     background-size: cover;
-    background-position: left;
+    background-position: center;
     height: 419px;
     width: 400px;
     border-radius: 12px;
 }
 
 .about-img1{
-    background-image: url("/pictures/about2.webp");
+    background-image: url("/pictures/IMG-20240411-WA0010.webp");
     background-size: cover;
-    background-position: left;
+    background-position: center;
     height: 419px;
     width: 400px;
     border-radius: 12px;
 }
 
 .about-img2{
-    background-image: url("/pictures/about3.webp");
+    background-image: url("/pictures/aboutimage.webp");
     background-size: cover;
     background-position: left;
     height: 419px;
@@ -1324,7 +1324,7 @@ main{
 }
 
 .about-img3{
-    background-image: url("/pictures/about4.webp");
+    background-image: url("/pictures/IMG_20230125_154020.webp");
     background-size: cover;
     background-position: left;
     height: 419px;
