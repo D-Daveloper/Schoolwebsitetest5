@@ -1010,7 +1010,14 @@ footer .events img{
     color: #1eaaf1;
 }
 .events-header-section{
-    background-image: url("/pictures/bg_colors _2.webp");
+    background: repeating-linear-gradient(
+        to bottom,
+        #9593a6 0,
+        #ac9475 25%,
+        #9593a6 50%,
+        #ac9475 75%,
+        #9593a6 100%
+    );
     padding-top: 50px;
 }
 
@@ -1269,7 +1276,14 @@ footer .events img{
 }
 
 main{
-    background-image: url("/pictures/bg_colors _2.webp");
+    background: repeating-linear-gradient(
+        to bottom,
+        #9593a6 0,
+        #d6943c 25%,
+        #9593a6 50%,
+        #d6943c 75%,
+        #9593a6 100%
+    );
     padding-top: 50px;
 }
 

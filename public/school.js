@@ -194,7 +194,6 @@ function sideBar(e) {
 }
 
 const Contact = document.querySelector(".contactside")
-const teacher = document.querySelector(".Teacherside")
 function contact(){
     const sidebar = document.querySelector(".side-bar");
     if (sidebar.classList.contains("open-sidebar")){
@@ -204,7 +203,6 @@ function contact(){
 }
 
 Contact.addEventListener("click",contact);
-teacher.addEventListener("click",contact);
 document.querySelector(".first-bar").addEventListener("click", sideBar);
 const navBar = document.querySelector("#nav-bar");
 console.log(navBar.getBoundingClientRect().top)
