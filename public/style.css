@@ -449,7 +449,7 @@ h3{
 }
 .image-background {
     position: relative;    
-    background-image: url("./pictures/mid-page.jpg");
+    background-image: url("./pictures/mid-page1.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -660,7 +660,7 @@ h3{
 
 }
 .card-image1{
-    background-image: url("./pictures/course-1.jpg.webp");
+    background-image: url("./pictures/ballet2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -671,10 +671,10 @@ h3{
     background-image: url("./pictures/computer_stuff.webp");
 }
 .third{
-    background-image: url("./pictures/ballet1.webp");
+    background-image: url("./pictures/course-1.jpg.webp");
 }
 .fourth{
-    background-image: url("./pictures/ballet2.webp");
+    background-image: url("./pictures/course-1.jpg.webp");
 }
 .cards{
     display: flex;
@@ -1027,9 +1027,9 @@ footer .events img{
 
 .events-image-background {
     position: relative;    
-    background-image: url("./pictures/bg_3.jpg.webp");
+    background-image: url("./pictures/IMG-20240411-WA000411.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-attachment: fixed;
     height: auto;
     padding: 8rem 0;
@@ -1041,14 +1041,14 @@ footer .events img{
     justify-content: center;
 }
 .events-overlay{
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    content: '';
-    opacity: .2;
-    background: #f1453d;
+    content: ''; */
+    /* opacity: .2; */
+    /* background: #f1453d; */
 }
 
 .events-image-background-container{
@@ -1208,14 +1208,14 @@ footer .events img{
     justify-content: center;
 }
 .events-overlay{
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+    /* top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    content: '';
-    opacity: .2;
-    background: #f1453d;
+    content: ''; */
+    /* opacity: .2; */
+    /* background: #f1453d; */
 }
 
 .events-image-background-container{
