@@ -1416,6 +1416,9 @@ main{
 .members{
     list-style: none;
 }
+.membership h3{
+    margin-top: 20px;
+}
 .membership ul{
     display: flex;
     justify-content: space-between;
@@ -1424,9 +1427,11 @@ main{
 @media (max-width:600px) {
     .membership ul{
         flex-direction: column;
+        text-align: start;
     }
     .members{
-        list-style:disc;
+        text-align: start;
+        list-style: disc;
     }
 }
 .discover-cards{
