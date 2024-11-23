@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { getEvent, goToAddEvents, addEvents, viewEvent, editEvents,deleteEvent} from "../controllers/event.js";
-import { getEmails, gotoSendEmail, SendGroupEmail } from "../controllers/email.js";
+import { deleteEmail, getEmails, gotoSendEmail, SendGroupEmail } from "../controllers/email.js";
 const router = Router()
 
 router.get("/admin/viewEmails",getEmails);
 router.get("/admin/messageEmails",gotoSendEmail);
+router.get("/deleteEmail/:emailId",deleteEmail);
 router.post("/admin/send/Emails",SendGroupEmail);
 router.route("/addEvent").get(goToAddEvents).post(addEvents);
 router.get("/admin/viewEvents",viewEvent);

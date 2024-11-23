@@ -154,5 +154,22 @@ async function SendGroupEmail(req, res) {
   }
 }
 
-export { subscribe, getEmails, gotoSendEmail, SendGroupEmail };
+async function deleteEmail(req, res){
+  const emailId = req.params.emailId;
+  try {
+    const email = await Email.findByIdAndDelete(emailId);
+    let allEmails;
+    if (!email) {
+      allEmails = await Email.find();
+      return res.render("emails",{error:"This email does not Exist!",email:allEmails})
+    }
+    allEvents = await Email.find();
+    return res.render("emails",{message:"Success!",email:allEmails})
+  } catch (err) {
+    console.error(err.message);
+    return res.render("emails",{error:"Something went wrong.!",email:allEmails})
+  }
+};
+
+export { subscribe, getEmails, gotoSendEmail, SendGroupEmail,deleteEmail };
 //res.sendStatus(200); // equivalent to res.status(200).send('OK') res.sendStatus(403); // equivalent to res.status(403).send('Forbidden') res.sendStatus(404); // equivalent to res.status(404).send('Not Found') res.sendStatus(500); // equivalent to res.status(500).send('Internal Server Error')
