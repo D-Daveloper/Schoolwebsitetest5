@@ -17,7 +17,7 @@ import { getEvents } from './controllers/event.js';
 config(); // Load environment variables from .env file
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 app.use(methodOverride("_method"))
@@ -66,7 +66,7 @@ app.get("/admin",(req,res) => {
 // Connect to MongoDB
 const start = async() => {
   try {
-      await mongoose.connect("mongodb://0.0.0.0:27017/Orkids")
+      await mongoose.connect(process.env.MONGODB)
       .then(() => console.log("connected"))
       app.listen(port, () => {
           console.log(`Server is running on port ${port}`);
