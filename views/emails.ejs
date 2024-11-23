@@ -17,7 +17,7 @@
             collections
         </h1>
         <ul>
-            <li class="db"> <span class="collections"><a href="/viewEvents">events</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEvents">events</a></span>
                 <div>
                     <a href="/addEvent">
                         <p>
@@ -37,13 +37,14 @@
                     </a> 
                 </div>
             </li>           
-            <li class="db"> <span class="collections"><a href="/viewEmails">emails</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEmails">emails</a></span>
                 <div>
-                    <a href="/viewEmails">
+                    <a href="/admin/messageEmails"">
                         <p>
-                            view
+                          <i class="fa-solid fa-pencil"></i>
+                          message
                         </p>
-                    </a> 
+                      </a>
                 </div>
             </li>
         </ul>
@@ -51,15 +52,16 @@
         <!-- addEvent.ejs -->
     <section>
         <div class="viewEvents-head">
-            <h1>view Event</h1>
+            <h1>view Emails</h1>
         </div>
         <div class="events-container">
             <ul class="">
                 <% email.forEach(email => { %>
                 <div class="veiwEvent" >
                     <div>
-                        <li class="events"><%= email.name %></li>
+                        <li class="events"><%= email.email%></li>
                     </div>
+                    <div class="deleted-button" data-event-id="<%= email._id %>"><a href="/deleteEvent/<%= email._id %>"><i class="fa-solid fa-trash"></i></a></div>
                 </div>
                 <% }); %>
             </ul>
@@ -88,7 +90,7 @@
 //         console.log('Event ID:', eventId);
 
 //         try {
-//             const response = await fetch(`/deleteEvents/${eventId}`, {
+//             const response = await fetch(`/event/${eventId}`, {
 //                 method: 'DELETE',
 //             });
 

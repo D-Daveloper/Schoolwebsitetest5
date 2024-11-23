@@ -17,7 +17,7 @@
             collections
         </h1>
         <ul class="add-ul">
-            <li class="db"> <span class="collections"><a href="/viewEvents">events</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEvents">events</a></span>
                 <div>
                     <a href="/addEvent">
                         <p>
@@ -27,7 +27,7 @@
                     </a> 
                 </div>
             </li>
-            <li class="db"> <span class="collections"><a href="/viewTestimonals">testimonials</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewTestimonial">testimonials</a></span>
                 <div>
                     <a href="/admin/addTestimonial">
                         <p>
@@ -37,11 +37,12 @@
                     </a> 
                 </div>
             </li>           
-            <li class="db"> <span class="collections"><a href="/viewEmails">emails</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEmails">emails</a></span>
                 <div>
-                    <a href="/viewEmails">
+                    <a href="/admin/messageEmails">
                         <p>
-                            view
+                            <i class="fa-solid fa-pencil"></i>
+                            Message
                         </p>
                     </a> 
                 </div>
@@ -74,11 +75,74 @@
 
             <div class="button">
                 <button type="submit">Add Event</button>
-                <div class="span">
-                    <span>saved!!</span>
-                </div>                
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                      <%= error %>
+                    </div>
+                  <% }else if (locals.message){ %>
+                  <div class="alert alert-success p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                    <%= message %>
+                  </div> 
+                  <% } %>        
+                  <!-- <div class="alert alert-success mb-0 ml-1 mr-10 p-2 rounded-sm" style="margin-left: 10px;" role="alert">
+                    geugugcwsbjvebcavuvcuwvsdugfbrusvfedusuvcuapuhvdgardhpug
+                  </div>        -->
             </div>
         </form>
     </section>
 </div>
+<script>
+    // document.getElementById('addEventForm').addEventListener('submit', function(event) {
+    // event.preventDefault(); // Prevent default form submission
+
+    // const form = document.getElementById('addEventForm');
+    // console.log(form);
+    // const formData = new FormData(form); // Create FormData object from the form
+    // console.log(formData)
+    // // Output the form data for debugging purposes
+    // for (let pair of formData.entries()) {
+    //     console.log(pair[0] + ': ' + pair[1]);
+    // }
+
+    // Example of using fetch to send a POST request to the server
+    document.addEventListener("DOMContentLoaded", () => {       
+    // const show_message = document.querySelector(".alert");
+
+    // function show() {
+    //     show_message.classList.add("show-successfull");
+    // };
+
+    // function hide() {
+    //     show_message.classList.remove("show-successfull");
+    // };
+
+    // setTimeout(show, 100);
+    // setTimeout(hide, 1000);
+    // fetch('/addEvent', {
+    //     method: 'POST',
+    //     body: formData // Send FormData directly without JSON.stringify
+    // })
+    // .then(response => {
+    //     if (response.ok) {
+    //         // Clear input fields after successful submission
+    //         form.reset();
+    //     } else {
+    //         throw new Error('Failed to subscribe');
+    //     }
+    // })
+    // .catch(error => {
+    //     console.error('Error:', error);
+    //     alert('Failed to subscribe: ' + error.message);
+    // });
+
+    // if (locals.error || locals.message ){
+        setTimeout(() => {
+        const errorMessage = document.querySelector(".alert");
+        if (errorMessage) {
+          errorMessage.style.display = "none";
+        }
+      }, 5000); 
+    // }
+});
+</script>
 <%- include("partials/adminFooter") %>

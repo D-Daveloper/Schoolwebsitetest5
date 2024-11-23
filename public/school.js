@@ -230,10 +230,10 @@ window.addEventListener("scroll",() => {
     lastScroll = currentscroll;
 })
 
-var div = document.querySelector(".image-container-staff")
-div.addEventListener("mouseover", function(){
-    h3.style.color = "blue";
-})
+// var div = document.querySelector(".image-container-staff")
+// div.addEventListener("mouseover", function(){
+//     h3.style.color = "blue";
+// })
 
 
 const wrapper = document.querySelector(".wrapper");
@@ -308,42 +308,40 @@ carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
-document.getElementById('subscribeForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-    //example
-    const form = document.getElementById("subscribeForm")
-    const formdata = new FormData(form)
-    const email = document.getElementById('emailInput').value;
+// document.getElementById('subscribeForm').addEventListener('click', function(event) {
+//     event.preventDefault(); // Prevent default form submission
+//     //example
+//     const email = document.getElementById('emailInput').value;
 
-    // Example of using fetch to send a POST request to the server
-    const show_message = document.querySelector(".subscription")
-    function show(){
-        show_message.classList.add("show-successfull")
-    };
-    function hide(){
-        show_message.classList.remove("show-successfull")
-    };
-    fetch('/subscribe', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
-    })
-    .then(response => {
-        if (response.ok) {
-            setTimeout(show,100);
-            setTimeout(hide,1000);
-            document.getElementById('emailInput').value = ''; // Clear input field
-        } else {
-            throw new Error('Failed to subscribe');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Invalid email or duplicate email.');
-    });
-});
+//     // Example of using fetch to send a POST request to the server
+//     const show_message = document.querySelector(".subscription")
+//     function show(){
+//         show_message.classList.add("show-successfull")
+//     };
+//     function hide(){
+//         show_message.classList.remove("show-successfull")
+//     };
+//     fetch('/subscribe', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ email })
+//     })
+//     .then(response => {
+//         if (response.ok) {
+//             setTimeout(show,100);
+//             setTimeout(hide,1000);
+//             document.getElementById('emailInput').value = ''; // Clear input field
+//         } else {
+//             throw new Error('Failed to subscribe');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('Invalid email or duplicate email.');
+//     });
+// });
 
 
 

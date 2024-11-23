@@ -10,10 +10,10 @@
                         <img class="carousel-img" src="/pictures/home-first-pic1.webp" alt="placeholder">
                     </li>
                     <li class="carousel_slide">
-                        <img class="carousel-img" src="/pictures/the-boywithsmile1.webp" alt="placeholder">
+                        <img class="carousel-img" src="https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/j8jwqqtalyoytlvfxadv" alt="placeholder">
                     </li>
                     <li class="carousel_slide">
-                        <img class="carousel-img" src=".//pictures/reading-students2.webp" alt="placeholder">
+                        <img class="carousel-img" src="https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/bkumy5nlasqq6mlhnnf6" alt="placeholder">
                     </li>
                 </ul>
                 <div class="carousel-nav">
@@ -309,32 +309,6 @@
                         </div>
                     </div>
                 </div>                
-                <div class="cards fade-in-up">
-                    <div class="card1">
-                        <div class="card-image1 third"></div>
-                        <div class="card-details">
-                            <h3>
-                                Arts Lesson
-                            </h3>
-                            <p class="class-time">Class time: <span>9:00am - 10am</span</p>
-                            <p>
-                                Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card1">
-                        <div class="card-image1 fourth"></div>
-                        <div class="card-details">
-                            <h3>
-                                Arts Lesson
-                            </h3>
-                            <p>Class time: <span>9:00am - 10am</span</p>
-                            <p>
-                                Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -356,7 +330,7 @@
                         <p> <%= testimonial.description %></p>
                     </div>
                     <div class="img-name ">
-                        <div class="img"><img src="/pictures/<%= testimonial.image %>" alt="img" draggable="false">
+                        <div class="img"><img src="<%= testimonial.image %>" alt="img" draggable="false">
                         </div>
                         <div>
                             <span><%= testimonial.name %></span>
@@ -374,11 +348,10 @@
   
 </body>
 <script>
-    document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+    document.getElementById('subscribeForm').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent default form submission
     //example
-    const form = document.getElementById("subscribeForm")
-    const formdata = new FormData(form)
+    const emailInput = document.getElementById('emailInput');
     const email = document.getElementById('emailInput').value;
 
     // Example of using fetch to send a POST request to the server
@@ -389,6 +362,13 @@
     function hide(){
         show_message.classList.remove("show-successfull")
     };
+    function setResponseMessage(text){
+        show_message.innerHTML = text
+            setTimeout(show,100);
+            setTimeout(hide,1000);
+            console.log(emailInput.value)
+            emailInput.value = ''; // Clear input field
+        }
     fetch('/subscribe', {
         method: 'POST',
         headers: {
@@ -397,17 +377,17 @@
         body: JSON.stringify({ email })
     })
     .then(response => {
-        if (response.ok) {
-            setTimeout(show,100);
-            setTimeout(hide,1000);
-            document.getElementById('emailInput').value = ''; // Clear input field
-        } else {
-            throw new Error('Failed to subscribe');
+        console.log(response)
+        if (response.status == 201) {
+            setResponseMessage("Subcription successful");
+        } else if(response.status == 403) {
+            setResponseMessage("Duplicate Email");
+        }else if(response.status == 500) {
+            setResponseMessage("Internal Server");
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Invalid email or duplicate email.');
     });
 });
 

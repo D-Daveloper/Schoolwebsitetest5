@@ -35,7 +35,7 @@ const testimonialSchema = new mongoose.Schema({
     }, // Add image field to store image URLs
   });
 const emailSchema = new mongoose.Schema({
-    name: {
+    email: {
       type: String,
       required: true
     },

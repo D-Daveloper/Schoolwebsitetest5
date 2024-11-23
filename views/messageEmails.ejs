@@ -1,0 +1,107 @@
+<%- include("partials/header_admin")  %>
+<style>
+    body{
+        background-image: none;
+        background-color: black;
+        color: white;
+    }
+    
+    nav{
+        background-color: #417690;
+        width: 100%;
+    } 
+</style>    
+<div class="wrapper">
+    <section class="add-section">
+        <h1>
+            collections
+        </h1>
+        <ul class="add-ul">
+            <li class="db"> <span class="collections"><a href="/admin/viewEvents">events</a></span>
+                <div>
+                    <a href="/addEvent">
+                        <p>
+                            <i class="fa-solid fa-plus"></i>
+                            add
+                        </p>
+                    </a> 
+                </div>
+            </li>
+            <li class="db"> <span class="collections"><a href="/admin/viewTestimonial">testimonials</a></span>
+                <div>
+                    <a href="/admin/addTestimonial">
+                        <p>
+                            <i class="fa-solid fa-plus"></i>
+                            add
+                        </p>
+                    </a> 
+                </div>
+            </li>           
+            <li class="db"> <span class="collections"><a href="/admin/viewEmails">emails</a></span>
+                <div>
+                    <a href="/admin/messageEmails">
+                        <p>
+                          <i class="fa-solid fa-pencil"></i>
+                          message
+                        </p>
+                      </a> 
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="add-form">
+        <h1>Send Emails</h1>
+        <form action="/admin/send/Emails" method="POST" enctype="multipart/form-data" id="addTestimonailForm">
+            <div class="form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required autocomplete="off"><br>
+                
+            </div>
+
+            <div class="form">
+                <label for="description">First Paragraph:</label>
+                <textarea id="description" name="first" rows="4" required></textarea><br>
+            </div>
+            <div class="form">
+                <label for="description">Second Paragraph:</label>
+                <textarea id="description" name="second" rows="4" ></textarea><br>
+            </div>
+            <div class="form">
+                <label for="description">Third Paragraph:</label>
+                <textarea id="description" name="third" rows="4" ></textarea><br>
+            </div>
+
+            <div class="form">
+                <label for="eventImage">Image:</label>
+                <input type="file" id="eventImage" name="emailImage" accept="image/*" ><br>
+            </div>
+
+            <div class="button">
+                <button type="submit">Send Message</button>
+                <!-- <div class="span">
+                    <span>saved!!</span>
+                </div>                 -->
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                      <%= error %>
+                    </div>
+                  <% }else if (locals.message){ %>
+                  <div class="alert alert-success p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                    <%= message %>
+                  </div> 
+                  <% } %>     
+            </div>
+        </form>
+    </section>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {       
+        setTimeout(() => {
+        const errorMessage = document.querySelector(".alert");
+        if (errorMessage) {
+          errorMessage.style.display = "none";
+        }
+      }, 5000); 
+});
+</script>
+<%- include("partials/adminFooter") %>

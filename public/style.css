@@ -34,12 +34,10 @@ body {
 }
 #nav-bar{
     position: fixed;
-    background-color: transparent;
     z-index: 10000;
     top: 0;
     left: 0;
     right: 0;
-    padding: 20px 0;
     transition: all 0.3s ease-in-out;
 }
 .scroll-down #nav-bar{
@@ -68,7 +66,7 @@ body {
     padding:0 10px;
 }
 
-.container{
+.container2{
     max-width: 1230px;
     margin: 0 auto;
 }
@@ -157,8 +155,14 @@ li a:hover{
     .menu-button{
         display: block;
     }
-    .container{
+    .container2{
         width: 100%;
+        padding: 0 15px;
+    } 
+}
+@media (max-width: 640px) {
+    .container2{
+        width: 90%;
         padding: 0 15px;
     } 
 }
@@ -449,7 +453,7 @@ h3{
 }
 .image-background {
     position: relative;    
-    background-image: url("./pictures/mid-page1.webp");
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/ldw5cp1bauiywbipcabj");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -660,7 +664,7 @@ h3{
 
 }
 .card-image1{
-    background-image: url("./pictures/ballet2.webp");
+    background-image: url("http://res.cloudinary.com/dxiqrdmzu/image/upload/v1732378043/Testimonial%20folder/ballet2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -668,13 +672,7 @@ h3{
     width: 250px;
 }
 .second{
-    background-image: url("./pictures/computer_stuff.webp");
-}
-.third{
-    background-image: url("./pictures/course-1.jpg.webp");
-}
-.fourth{
-    background-image: url("./pictures/course-1.jpg.webp");
+    background-image: url("http://res.cloudinary.com/dxiqrdmzu/image/upload/v1732378200/Testimonial%20folder/computer_stuff.jpg");
 }
 .cards{
     display: flex;
@@ -1026,13 +1024,20 @@ footer .events img{
 }
 
 .events-image-background {
-    position: relative;    
-    background-image: url("./pictures/IMG-20240411-WA000411.jpg");
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/sxahnodyhhi0z6rlpfxw");
     background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
-    height: auto;
+    background-position: left;
+    height: 600px;
     padding: 8rem 0;
+    position: relative;
+}
+.events-image-background1 {
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/qokkwvvnz5abkcypb9dg");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    padding: 8rem 0;
+    position: relative;
 }
 
 .events-section-container{
@@ -1040,37 +1045,37 @@ footer .events img{
     align-items: center;
     justify-content: center;
 }
-.events-overlay{
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: ''; */
-    /* opacity: .2; */
-    /* background: #f1453d; */
-}
 
 .events-image-background-container{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
     max-width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }   
 .events-content{
-    position: relative;
+    /* position: relative; */
     align-items: center;
     text-align: center;
     display: flex;
     line-height: 1.5;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+    margin-top: 150px;
 }
 .events-content h2{
     color: #fff;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 400;
+    font-family: Poppins;
+
 }
 
 .events-content p {
@@ -1200,22 +1205,17 @@ footer .events img{
         width: 90%;
         margin: 0 auto;
     }
+    .event-button{
+        font-size: 8px;
+        padding: 0.2rem;
+
+    }
 }
 
 .events-section-container{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.events-overlay{
-    /* position: absolute; */
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: ''; */
-    /* opacity: .2; */
-    /* background: #f1453d; */
 }
 
 .events-image-background-container{
@@ -1236,12 +1236,12 @@ footer .events img{
     flex-direction: column;
 }
 
-.events-content h2{
+/* .events-content h2{
     color: #fff;
     font-size: 3rem;
     font-weight: 800;
     font-family: Poppins;
-}
+} */
 
 .events-content p {
     text-transform: capitalize;
@@ -1442,7 +1442,7 @@ main{
 }
 
 .discover-card1{
-    background-image: url("/pictures/about1.webp");
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/nk8bbkmh3q1vzyrvkncc");
     background-size: cover;
     background-position: left;
     height: 300px;
@@ -1455,7 +1455,7 @@ main{
     transform: scale(1.1);
 }
 .discover-card2{
-    background-image: url("/pictures/about2.webp");
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/hzmfdbcnzo9hlvrqg91l");
     background-size: cover;
     background-position: left;
     height: 300px;
@@ -1468,7 +1468,7 @@ main{
     transform: scale(1.1);
 }
 .discover-card3{
-    background-image: url("/pictures/about3.webp");
+    background-image: url("https://res.cloudinary.com/dxiqrdmzu/image/upload/f_auto,q_auto/v1/Testimonial%20folder/mtwsupy7ivty424p4za2");
     background-size: cover;
     background-position: left;
     height: 300px;

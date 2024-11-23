@@ -11,94 +11,130 @@
         width: 100%;
     } 
 </style>
-<section class="add-form">
-    <h1>Testimonial</h1>
-  
-    <h2>Edit Testimonial</h2>
-    <form id="editTestimonialform" data-event-id="<%= testimonial._id %>" action="/editTestimonial/<%= testimonial._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="PUT"/>
-        <div class="form">
-            <label for="name">Name:</label>
-            <input type="text" id="title" name="name" value="<%= testimonial.name %>" required><br>
-            
-        </div>
+<div class="wrapper">
+    <section class="add-section">
+        <h1>
+            collections
+        </h1>
+        <ul class="add-ul">
+            <li class="db"> <span class="collections"><a href="/admin/viewEvents">events</a></span>
+                <div>
+                    <a href="/addEvent">
+                        <p>
+                            <i class="fa-solid fa-plus"></i>
+                            add
+                        </p>
+                    </a> 
+                </div>
+            </li>
+            <li class="db"> <span class="collections"><a href="/admin/viewTestimonial">testimonials</a></span>
+                <div>
+                    <a href="/admin/addTestimonial">
+                        <p>
+                            <i class="fa-solid fa-plus"></i>
+                            add
+                        </p>
+                    </a> 
+                </div>
+            </li>           
+            <li class="db"> <span class="collections"><a href="/admin/viewEmails">emails</a></span>
+                <div>
+                    <a href="/admin/messageEmails">
+                        <p>
+                          <i class="fa-solid fa-pencil"></i>
+                          message
+                        </p>
+                      </a> 
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="add-form">
+        <h1>Testimonial</h1>
       
-        <div class="form">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4" required> <%= testimonial.description %></textarea><br>
-        </div>
-  
-        <!-- <div class="form">
-            <label for="date">Date:</label>
-            <input class="date" type="date" id="date" name="date" value="" required><br>
-        </div> -->
-
-        <div class="form">
-            <label for="testimonialImage">Image:</label>
-            <div class="inner-form">
-                <span>currently: <%= testimonial.image %></span>
-                <input type="file" id="eventImage" name="testimonialImage" accept="image/*" required><br>
+        <h2>Edit Testimonial</h2>
+        <form id="editTestimonialform" data-event-id="<%= testimonial._id %>" action="/editTestimonial/<%= testimonial._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT"/>
+            <div class="form">
+                <label for="name">Name:</label>
+                <input type="text" id="title" name="name" value="<%= testimonial.name %>" required><br>
+                
             </div>
+          
+            <div class="form">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required> <%= testimonial.description %></textarea><br>
+            </div>
+    
+            <div class="form">
+                <label for="testimonialImage">Image:</label>
+                <div class="inner-form">
+                    <span>currently: <%= testimonial.image %></span>
+                    <input type="file" id="eventImage" name="testimonialImage" accept="image/*" ><br>
+                </div>
+    
+            </div>
+      
+            <div class="button">
+                <button type="submit">Update Testimonial</button>
+                <div class="span">
+                    <span>updated!</span>
+                </div>                
+            </div>
+        </form>
+    </section>
 
-        </div>
-  
-        <div class="button">
-            <button type="submit">Update Testimonial</button>
-            <div class="span">
-                <span>updated!</span>
-            </div>                
-        </div>
-    </form>
-</section>
+</div>
 <script>
-    document.getElementById('editTestimonialform').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+//     document.getElementById('editTestimonialform').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevent default form submission
 
-    const form = document.getElementById('editTestimonialform');
-    const formData = new FormData(form); // Create FormData object from the form
-    console.log(formData)
-    // Output the form data for debugging purposes
-    for (let pair of formData.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-    }
-    const eventId = this.dataset.eventId;
+//     const form = document.getElementById('editTestimonialform');
+//     const formData = new FormData(form); // Create FormData object from the form
+//     console.log(formData)
+//     // Output the form data for debugging purposes
+//     for (let pair of formData.entries()) {
+//         console.log(pair[0] + ': ' + pair[1]);
+//     }
+//     const eventId = this.dataset.eventId;
 
-    // Example of using fetch to send a POST request to the server
-    const show_message = document.querySelector(".span");
+//     // Example of using fetch to send a POST request to the server
+//     const show_message = document.querySelector(".span");
 
-    function show() {
-        show_message.classList.add("show-successfull");
-    };
+//     function show() {
+//         show_message.classList.add("show-successfull");
+//     };
 
-    function hide() {
-        show_message.classList.remove("show-successfull");
-    };
+//     function hide() {
+//         show_message.classList.remove("show-successfull");
+//     };
 
-    fetch(`/editTestimonial/${eventId}`, {
-        method: 'PUT',
-        body: formData // Send FormData directly without JSON.stringify
-    })
-    .then(response => {
-        if (response.ok) {
-            setTimeout(() => {
-                    show();
-                    setTimeout(() => {
-                        hide();
-                        // Reload the page after a delay
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 1000); // Adjust the delay as needed
-                    }, 1000); // Adjust the delay as needed
-                }, 100);
-            // Clear input fields after successful submission
-        } else {
-            throw new Error('Failed to subscribe');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Failed to subscribe: ' + error.message);
-    });
-});
+//     fetch(`/editTestimonial/${eventId}`, {
+//         method: 'PUT',
+//         body: formData // Send FormData directly without JSON.stringify
+//     })
+//     .then(response => {
+//         if (response.ok) {
+//             setTimeout(() => {
+//                     show();
+//                     setTimeout(() => {
+//                         hide();
+//                         // Reload the page after a delay
+//                         setTimeout(() => {
+//                             window.location.reload();
+//                         }, 1000); // Adjust the delay as needed
+//                     }, 1000); // Adjust the delay as needed
+//                 }, 100);
+//             // Clear input fields after successful submission
+//         } else {
+//             throw new Error('Failed to subscribe');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('Failed to subscribe: ' + error.message);
+//     });
+// });
+
 </script>
 <%- include("partials/adminFooter") %>

@@ -17,7 +17,7 @@
             collections
         </h1>
         <ul class="add-ul">
-            <li class="db"> <span class="collections"><a href="/viewEvents">events</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEvents">events</a></span>
                 <div>
                     <a href="/addEvent">
                         <p>
@@ -27,7 +27,7 @@
                     </a> 
                 </div>
             </li>
-            <li class="db"> <span class="collections"><a href="/viewTestimonials">testimonials</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewTestimonial">testimonials</a></span>
                 <div>
                     <a href="/admin/addTestimonial">
                         <p>
@@ -37,23 +37,24 @@
                     </a> 
                 </div>
             </li>           
-            <li class="db"> <span class="collections"><a href="/viewEmails">emails</a></span>
+            <li class="db"> <span class="collections"><a href="/admin/viewEmails">emails</a></span>
                 <div>
-                    <a href="/viewEmails">
+                    <a href="/admin/messageEmails">
                         <p>
-                            view
+                          <i class="fa-solid fa-pencil"></i>
+                          message
                         </p>
-                    </a> 
+                      </a> 
                 </div>
             </li>
         </ul>
     </section>
     <section class="add-form">
         <h1>Add Testimonial</h1>
-        <form action="/addTestimonial" method="POST" enctype="multipart/form-data" id="addTestimonailForm">
+        <form action="/admin/addTestimonial" method="POST" enctype="multipart/form-data" id="addTestimonailForm">
             <div class="form">
                 <label for="title">Name:</label>
-                <input type="text" id="title" name="name" required><br>
+                <input type="text" id="title" name="name" required autocomplete="off"><br>
                 
             </div>
 
@@ -69,54 +70,71 @@
 
             <div class="button">
                 <button type="submit">Add Testimonial</button>
-                <div class="span">
+                <!-- <div class="span">
                     <span>saved!!</span>
-                </div>                
+                </div>                 -->
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                      <%= error %>
+                    </div>
+                  <% }else if (locals.message){ %>
+                  <div class="alert alert-success p-2 rounded-sm mb-0" style="margin-left: 10px;" role="alert">
+                    <%= message %>
+                  </div> 
+                  <% } %>     
             </div>
         </form>
     </section>
 </div>
 <script>
-        document.getElementById('addTestimonailForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+        // document.getElementById('addTestimonailForm').addEventListener('submit', function(event) {
+        //     event.preventDefault(); // Prevent default form submission
         
-            const form = document.getElementById('addTestimonailForm');
-            const formData = new FormData(form); // Create FormData object from the form
-            console.log(formData)
-            // Output the form data for debugging purposes
-            for (let pair of formData.entries()) {
-                console.log(pair[0] + ': ' + pair[1]);
-            }
+        //     const form = document.getElementById('addTestimonailForm');
+        //     const formData = new FormData(form); // Create FormData object from the form
+        //     console.log(formData)
+        //     // Output the form data for debugging purposes
+        //     for (let pair of formData.entries()) {
+        //         console.log(pair[0] + ': ' + pair[1]);
+        //     }
         
-            // Example of using fetch to send a POST request to the server
-            const show_message = document.querySelector(".span");
+        //     // Example of using fetch to send a POST request to the server
+        //     const show_message = document.querySelector(".span");
         
-            function show() {
-                show_message.classList.add("show-successfull");
-            };
+        //     function show() {
+        //         show_message.classList.add("show-successfull");
+        //     };
         
-            function hide() {
-                show_message.classList.remove("show-successfull");
-            };
+        //     function hide() {
+        //         show_message.classList.remove("show-successfull");
+        //     };
         
-            fetch('/addTestimonial', {
-                method: 'POST',
-                body: formData // Send FormData directly without JSON.stringify
-            })
-            .then(response => {
-                if (response.ok) {
-                    setTimeout(show, 100);
-                    setTimeout(hide, 1000);
-                    // Clear input fields after successful submission
-                    form.reset();
-                } else {
-                    throw new Error('Failed to subscribe');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to subscribe: ' + error.message);
-            });
-        })
+        //     fetch('/addTestimonial', {
+        //         method: 'POST',
+        //         body: formData // Send FormData directly without JSON.stringify
+        //     })
+        //     .then(response => {
+        //         if (response.ok) {
+        //             setTimeout(show, 100);
+        //             setTimeout(hide, 1000);
+        //             // Clear input fields after successful submission
+        //             form.reset();
+        //         } else {
+        //             throw new Error('Failed to subscribe');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //         alert('Failed to subscribe: ' + error.message);
+        //     });
+        // })
+        document.addEventListener("DOMContentLoaded", () => {       
+        setTimeout(() => {
+        const errorMessage = document.querySelector(".alert");
+        if (errorMessage) {
+          errorMessage.style.display = "none";
+        }
+      }, 5000); 
+});
 </script>
 <%- include("partials/adminFooter") %>
