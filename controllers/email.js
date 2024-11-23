@@ -163,7 +163,7 @@ async function deleteEmail(req, res){
       allEmails = await Email.find();
       return res.render("emails",{error:"This email does not Exist!",email:allEmails})
     }
-    allEvents = await Email.find();
+    allEmails = await Email.find();
     return res.render("emails",{message:"Success!",email:allEmails})
   } catch (err) {
     console.error(err.message);
